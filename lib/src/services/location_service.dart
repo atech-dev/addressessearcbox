@@ -14,9 +14,9 @@ Future<void> initLocationService({
   serviceEnabled = await controller.serviceEnabled();
   if (!serviceEnabled) return;
   PermissionStatus permissionGranted = await controller.hasPermission();
-  if (permissionGranted == PermissionStatus.denied) {
+  if (permissionGranted == PermissionStatus.DENIED) {
     permissionGranted = await controller.requestPermission();
-    if (permissionGranted != PermissionStatus.granted &&
+    if (permissionGranted != PermissionStatus.GRANTED &&
         noPermissionGranted != null) await noPermissionGranted();
   }
 }
